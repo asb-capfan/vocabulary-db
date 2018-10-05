@@ -37,7 +37,7 @@ $.ajax({
 	*
 	*/
 
-    $.get( "/cgi-bin/perl-test.pl", function( data ) {
+    $.get( "/cgi-bin/vokabel_db/perl-test.pl", function( data ) {
 
 		console.log("hi from jquery");
   		if ($.isXMLDoc(data)){
@@ -73,35 +73,38 @@ $.ajax({
 	$( "#tabs" ).tabs();
 	$( "input[type=submit], button" ).button();
 	
-	$xml_post1 = '<?xml version="1.0" encoding="UTF-8"?> <data_body> <table>business_english</table><vocabulary language="english" word="bias"/><vocabulary language="deutsch" word="Tendenz"/></data_body>';
+	//var xml_post1 = '<?xml version="1.0" encoding="UTF-8"?> <data_body> <table>business_english</table><vocabulary language="english" word="bias"/><vocabulary language="deutsch" word="Tendenz"/></data_body>';
 	
 	// event handling
 
 	$("#submit-lang").click(function(){
 
-		$table = $("#Table").val();
-		$translation = 'english';
-		if($table == "mixed_russki"){
-			$translation = 'russian'
+		var table = $("#Table").val();
+		var translation = 'english';
+		if(table == "mixed_russki"){
+			translation = 'russian';
 		}
-		$value_trans = $("#Translation").val();
-		$value_deu = $("#Deutsch").val();
+		var value_trans = $("#Translation").val();
+		var value_deu = $("#Deutsch").val();
 
-		if (!$value_trans  || !$value_deu){
+		if (!value_trans  || !value_deu){
 			alert("You forgot to fill in a translation!");
 			return;
 		}
-
-		$.post( "/cgi-bin/insert_test.pl",{  
-			table: $table,
-			translation: $translation,
-			german: 'deutsch',
-			voc1: $value_trans,
-			voc2: $value_deu
+        
+		$.ajax({
+            method:"POST",
+            url: "/cgi-bin/vokabel_db/insert_test.pl",
+            data: {
+                table: table,
+                translation: translation,
+                german: 'deutsch',
+                voc1: value_trans,
+                voc2: value_deu
 			}
-		, function(data){
-
-			if ($.isXMLDoc(data)){
+        }).done(function( data ){
+            
+            if ($.isXMLDoc(data)){
   				var xml_node = $(data);
   				var err_msg = xml_node.find('err_message').text();
 				alert(err_msg);
@@ -110,8 +113,10 @@ $.ajax({
   				$( "div.demo-container" ).html( data );
   			}
 			console.log( "Load was performed." );
-
-		});
+            
+        }).fail(function() {
+            alert( "error inserting data" );
+        });
 
 	});
 
@@ -122,19 +127,18 @@ $.ajax({
 		else{
 			$("#Translation-Label").html("English");
 		}
-		$table = $("#Table").val();
+		var table = $("#Table").val();
 
-		$translation = 'english';
-		if($table == "mixed_russki"){
-			$translation = 'russian'
+		var translation = 'english';
+		if(table == "mixed_russki"){
+			translation = 'russian';
 		}
 
-		$.post( "/cgi-bin/retrieve_table.pl",{  
-			table: $table,
-			translation: $translation,
+		$.post( "/cgi-bin/vokabel_db/retrieve_table.pl",{  
+			table: table,
+			translation: translation,
 			german: 'deutsch'
-			}
-		, function(data){
+		}).done(function(data){
 
 			$( "div.demo-container" ).html( data );
 			$('#dyn-table-id').DataTable();			
