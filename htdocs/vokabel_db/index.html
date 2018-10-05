@@ -1,65 +1,65 @@
+<html lang="de">
+    <meta charset="utf-8"/>
+    <head>
+        <title>Vocabulary DB</title>
+        <meta name="author" content="polybios90">     
+        <link rel="shortcut icon" type="image/x-icon" href="pics/star-folder.ico">
+        <link rel="stylesheet" type="text/css" href="css/vokabel_db.css">
+        <link rel="stylesheet" href="css/jquery-ui.min.css">
+        <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="js/call_perl.js"></script>
 
-
-<html>
-   <head>
-      <title>Vocabulary DB</title>
-      <meta name="author" content="polybios90">     
-      <link rel="shortcut icon" type="image/x-icon" href="pics/star-folder.ico">
-      <link rel="stylesheet" type="text/css" href="css/vokabel_db.css">
-      <link rel="stylesheet" href="css/jquery-ui.min.css">
-      <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
-      <script src="js/jquery-ui.min.js"></script>
-      <script type="text/javascript" src="js/call_perl.js"></script>
-
-      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/ju-1.11.4/jq-2.2.4/jszip-2.5.0/pdfmake-0.1.18/dt-1.10.13/af-2.1.3/b-1.2.4/b-colvis-1.2.4/b-html5-1.2.4/b-print-1.2.4/cr-1.3.2/fc-3.2.2/fh-3.1.2/kt-2.2.0/r-2.1.0/rr-1.2.0/sc-1.4.2/se-1.2.0/datatables.min.css"/>
- 
-      <script type="text/javascript" src="https://cdn.datatables.net/v/ju-1.11.4/jq-2.2.4/jszip-2.5.0/pdfmake-0.1.18/dt-1.10.13/af-2.1.3/b-1.2.4/b-colvis-1.2.4/b-html5-1.2.4/b-print-1.2.4/cr-1.3.2/fc-3.2.2/fh-3.1.2/kt-2.2.0/r-2.1.0/rr-1.2.0/sc-1.4.2/se-1.2.0/datatables.min.js"></script>
-
-   </head>
-   <!--   -----------------------------        HTML BODY             ------------------------------------          -->
-   <!---------------------------------------------------------------------------------------------------------------->
-   <body text="#000000">
-      <div id="container" class="ui-widget">
-         <!--   -------------------------------        Vokabel DB       ---------------------------------------          -->
-         <!---------------------------------------------------------------------------------------------------------------->
-         <div id="voc_db">
-            <h3>Vocabulary Connector</h3>
-            <div id="selection-block-1" class="ui-widget-content">
-               <p>
-                  <label for="Table" class="if-label">Table</label>
-                  <select id="Table" class="if-input">
-                     <option value="business_english" >Business English</option>
-                     <option value="sophisticated_english" >Sophisticated English</option>
-                     <option value="mixed_russki">Russian</option>
-                  </select>
-               </p>
-               <p>
-                  <label id="Translation-Label" class="if-label">English</label>
-                  <input type="text" id="Translation" class="if-input" />
-               </p>
-               <p>
-                  <label id="Deutsch-Label" class="if-label">Deutsch</label>
-                  <input type="text" id="Deutsch" class="if-input" />
-               </p>
-               <button id="submit-lang-button" >Submit</button>
-            </div>
-         </div>
-         <br><br>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css"/>
+        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
+    </head>
+    <!--   -----------------------------        HTML BODY             ------------------------------------          -->
+    <!---------------------------------------------------------------------------------------------------------------->
+    <body text="#000000">
+        <div id="container" class="ui-widget">
+            <!--   -------------------------------        Vokabel DB       ---------------------------------------          -->
+            <!---------------------------------------------------------------------------------------------------------------->
+            <div id="voc_db">
+               <h3>Vocabulary Connector</h3>
+               <div id="selection-block-1" class="ui-widget-content">
+                  <p>
+                     <label for="Table" class="if-label">Table</label>
+                     <select id="Table" class="if-input">
+                        <option value="business_english" >Business English</option>
+                        <option value="sophisticated_english" >Sophisticated English</option>
+                        <option value="mixed_russki">Russian</option>
+                     </select>
+                  </p>
+                  <p>
+                     <label id="Translation-Label" class="if-label">English</label>
+                     <input type="text" id="Translation" class="if-input" />
+                  </p>
+                  <p>
+                     <label id="Deutsch-Label" class="if-label">Deutsch</label>
+                     <input type="text" id="Deutsch" class="if-input" />
+                  </p>
+                  <button id="submit-lang-button" >Submit</button>
+               </div>
+           </div>
+           
+           <br><br>
+           
             <div class="demo-container">
                <div class="demo-box"></div>
             </div>
+            
             <br><br>
-         <div>
-            <img src="pics/vtr-logo-bo.jpg" width="100" height="50" title="VTR Logo">
-         </div>
-         <div style="font-size:14px; margin:5px; ">
-            <br>
-            <label id="user" style="color: #CB99C9"></label>
-            <div id="version_no" style="position:absolute; margin:5px; right: 0px;" >
-               Version 1.0.0
+           
+            <div>
+                <img src="pics/vtr-logo-bo.jpg" width="100" height="50" title="VTR Logo">
             </div>
-         </div>
-      </div>
-   </body>
+            <div style="font-size:14px; margin:5px; ">
+                <br>
+                <label id="user" style="color: #CB99C9"></label>
+                <div id="version_no" style="position:absolute; margin:5px; right: 0px;" >
+                    Version 1.0.0
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
-
